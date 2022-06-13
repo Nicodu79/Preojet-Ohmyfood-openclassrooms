@@ -1,0 +1,368 @@
+/**************** Variables et Mixins ******************************/
+
+$violet: #9356DC;
+$pink: #FF79DA;
+$green-light: #99E2D0;
+$gray-light: rgb(228, 225, 225);
+
+@mixin border-shadow {
+    box-shadow: 5px 5px 5px rgb(185, 176, 176);    
+}
+
+@mixin btn {
+    color: white;
+    background-color: $pink;
+    padding: 10px 30px;
+    border-radius: 20px;    
+    border: none;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    @include border-shadow;
+}
+
+
+/***************** General *******************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+* {
+    box-sizing: border-box;
+    
+}
+
+body{
+    margin: 0px;
+    font-size: 15px;
+    font-family: 'roboto', 'arial', 'sans-serif';    
+}
+
+h4{
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/*********** HEADER *************************************************/
+
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: shrikhand, roboto, sans-serif;
+    h1{
+        margin-bottom: 5px
+    }
+}
+
+.header-top{
+    background-color: rgb(228, 225, 225);
+    font-size: 1.4rem;
+
+}
+
+.header-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(185, 192, 194);
+    height: 45px;
+    text-align: center;
+    input{
+    background-color: rgb(185, 192, 194);
+    border: none;  
+    padding-left: 10px;
+    }
+    i{
+        font-size: 1rem;
+        padding-right: 3px;
+    }
+}
+
+.header-search-content{
+    text-align: center;
+
+    input{
+        @include btn
+    }
+}
+
+.header-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    h4{
+        margin: 25px 0 0 0;
+    }
+}
+
+.filtres{
+    display: flex;
+    align-items: baseline;
+    width: 85%;
+    text-align: center;
+    background-color: rgb(228, 225, 225);
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    @include border-shadow;
+    i{
+        padding: 0 16px;
+    }
+    p:nth-child(1){
+        background-color: $violet;
+        border-radius: 50%;
+        color: white;
+        padding: 5px 8px;
+        font-size: 0.7em;
+        margin-left: -30px;
+    }
+    p{
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+}
+
+
+/***************** PARTIE PRINCIPALE **************************************/
+
+.container{
+    background-color: rgb(228, 225, 225);
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 60px 20px;
+    margin-top: 30px;
+    gap: 20px;
+}
+.library-item{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 25px;
+    position: relative;
+    @include border-shadow;
+}
+
+.image-item img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 25px 25px 0 0;
+}
+
+.new{
+    position: absolute;
+    height: 25px;
+    background-color: $green-light;
+    border: 1px solid $green-light;
+    top:20px;
+    right: 20px;
+    font-weight: bold;
+    padding: 9px;
+    color: darken($color: $green-light, $amount: 40);
+}
+
+.library-meta{
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    .text-item{
+        width: 50%;
+        padding: 10px 0 10px 20px;
+    }
+    .title-item{
+        font-weight: bold;
+        padding-bottom: 3px;
+    }
+    .heart-item{
+        width: 50%;
+        text-align: end;
+        padding-right: 20px;
+    }        
+}
+
+/***************  FOOTER **************************************/
+
+.footer{
+    background-color: rgb(74, 71, 71);
+    padding-top: 20px;
+}
+
+.navigation{
+    display: flex;
+    margin-top: 10px;
+    nav ul{
+        padding-inline-start: 20px;
+    }
+    nav ul li{
+        list-style-type: none;
+        padding-bottom: 5px;
+    }
+    nav a{
+        color: white;
+        text-decoration: none;
+    }
+    .footer-lien{
+        display: flex;
+        align-items: baseline;
+        padding: 0 0 5px 20px;
+        p{
+            margin: 5px 0 5px 10px;
+            color: white;
+        }
+        i{
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }  
+    }
+    .footer-lien2{
+        padding: 0 0 10px 20px;
+        line-height: 25px;
+    }
+    
+
+}
+.footer-title{
+    font-family: shrikhand, roboto, sans-serif;
+    margin: 0 0 0 20px;
+    color: rgb(239, 237, 237);
+    font-size: 0.8rem;
+    h4{
+        margin: 0;
+        letter-spacing: 1px;
+    }
+        
+    }
+
+
+
+
+
+
+/************************* PAGES MENU  ********************************/
+.arrow a{
+    color: black;
+}
+
+.top-page{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row-reverse;
+}
+
+.header-image img{
+    width: 100%;
+    height: 240px;
+}
+
+.container-resto{
+    background-color: $gray-light;
+    border-radius: 25px 25px 0 0;
+    input{
+        @include btn; 
+        margin: 30px 0 60px 0;   
+    }
+}
+
+.btn-commander{
+    text-align: center;
+}
+
+.container-title{
+    margin-left: 10px;
+}
+
+.container-header{
+    font-family: shrikhand, roboto, sans-serif;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    h4{
+        width: 80%;
+        letter-spacing: 1px;
+        margin-left: 15px;
+    }
+    .heart-item{
+        width: 20%;
+        text-align: end;
+        margin-right: 25px;
+        font-size: 1.2rem;
+    }
+}
+.container-plat{
+    background-color: white;
+    padding: 10px;
+    margin: 15px 8px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    @include border-shadow;
+    .name-plat{
+        font-weight: bold;
+    }
+    .meta-plat{
+        display: flex;
+        width: 100%;
+        padding-top: 2px;
+        font-size: 0.8rem;
+    }
+    .content-plat{
+        width: 80%;
+    }
+    .price-plat{
+        width: 20%;
+        font-weight: bold;
+        text-align: end;
+        padding-right: 15px;
+    }
+   
+    }
+
+
+
+
+    /************************* VUE DESKTOP *******************************************/
+    
+    @media screen and (min-width: 750px) {
+
+body{
+    margin: 15px;
+}
+
+.title{
+    font-size: 1.8rem;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    width: 100%;
+    gap: 10px;
+    .header-top{
+        width: 50%;
+        border-radius: 25px;
+    }
+    .header-list{
+        width: 50%;
+        border: 1px solid black;
+        border-radius: 25px;
+    }
+}
+ 
+.container-library-item{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+        .library-item{
+            width: 40vw;
+            margin-bottom: 30px;
+        } 
+        img{
+           height: 230px;
+        }
+    }  
+
+}
+
