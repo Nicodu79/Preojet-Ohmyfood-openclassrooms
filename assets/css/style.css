@@ -1,6 +1,6 @@
 /**************** Variables et Mixins ******************************/
 /***************** General *******************************/
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 * {
   -webkit-box-sizing: border-box;
@@ -13,7 +13,7 @@ body {
   font-family: 'roboto', 'arial', 'sans-serif';
 }
 
-h4 {
+h2 {
   font-weight: bold;
   font-size: 1.4rem;
 }
@@ -71,14 +71,26 @@ h4 {
 
 .header-search-content input {
   color: white;
-  background-color: #FF79DA;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#FF79DA), to(#9356DC));
+  background-image: linear-gradient(to bottom right, #FF79DA, #9356DC);
   padding: 10px 30px;
   border-radius: 20px;
   border: none;
   margin-bottom: 40px;
   font-size: 1.2rem;
+  cursor: pointer;
+  -webkit-transition: background-color 1.3s, -webkit-box-shadow 1.3s;
+  transition: background-color 1.3s, -webkit-box-shadow 1.3s;
+  transition: background-color 1.3s, box-shadow 1.3s;
+  transition: background-color 1.3s, box-shadow 1.3s, -webkit-box-shadow 1.3s;
   -webkit-box-shadow: 5px 5px 5px #b9b0b0;
           box-shadow: 5px 5px 5px #b9b0b0;
+}
+
+.header-search-content input:hover {
+  background-color: #ff98e2;
+  -webkit-box-shadow: 12px 9px 5px #b9b0b0;
+          box-shadow: 12px 9px 5px #b9b0b0;
 }
 
 .header-list {
@@ -95,8 +107,9 @@ h4 {
   width: 100%;
 }
 
-.header-list h4 {
-  margin: 25px 0 0 0;
+.header-list h2 {
+  margin: 25px 0 0 70px;
+  width: 100%;
 }
 
 .filtres {
@@ -112,6 +125,7 @@ h4 {
   border-radius: 20px;
   padding: 10px 20px;
   margin: 10px 0;
+  cursor: pointer;
   -webkit-box-shadow: 5px 5px 5px #b9b0b0;
           box-shadow: 5px 5px 5px #b9b0b0;
 }
@@ -159,7 +173,9 @@ h4 {
           flex-direction: column;
   background-color: white;
   border-radius: 25px;
+  margin-bottom: 25px;
   position: relative;
+  cursor: pointer;
   -webkit-box-shadow: 5px 5px 5px #b9b0b0;
           box-shadow: 5px 5px 5px #b9b0b0;
 }
@@ -174,7 +190,6 @@ h4 {
 
 .new {
   position: absolute;
-  height: 25px;
   background-color: #99E2D0;
   border: 1px solid #99E2D0;
   top: 20px;
@@ -208,6 +223,10 @@ h4 {
   width: 50%;
   text-align: end;
   padding-right: 20px;
+}
+
+.library-meta .heart-item:hover {
+  color: #FF79DA;
 }
 
 /***************  FOOTER **************************************/
@@ -270,7 +289,7 @@ h4 {
   font-size: 0.8rem;
 }
 
-.footer-title h4 {
+.footer-title h2 {
   margin: 0;
   letter-spacing: 1px;
 }
@@ -278,6 +297,10 @@ h4 {
 /************************* PAGES MENU  ********************************/
 .arrow a {
   color: black;
+  position: absolute;
+  left: 25px;
+  top: 31px;
+  font-size: 1.2rem;
 }
 
 .top-page {
@@ -305,15 +328,27 @@ h4 {
 
 .container-resto input {
   color: white;
-  background-color: #FF79DA;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#FF79DA), to(#9356DC));
+  background-image: linear-gradient(to bottom right, #FF79DA, #9356DC);
   padding: 10px 30px;
   border-radius: 20px;
   border: none;
   margin-bottom: 40px;
   font-size: 1.2rem;
+  cursor: pointer;
+  -webkit-transition: background-color 1.3s, -webkit-box-shadow 1.3s;
+  transition: background-color 1.3s, -webkit-box-shadow 1.3s;
+  transition: background-color 1.3s, box-shadow 1.3s;
+  transition: background-color 1.3s, box-shadow 1.3s, -webkit-box-shadow 1.3s;
   -webkit-box-shadow: 5px 5px 5px #b9b0b0;
           box-shadow: 5px 5px 5px #b9b0b0;
   margin: 30px 0 60px 0;
+}
+
+.container-resto input:hover {
+  background-color: #ff98e2;
+  -webkit-box-shadow: 12px 9px 5px #b9b0b0;
+          box-shadow: 12px 9px 5px #b9b0b0;
 }
 
 .btn-commander {
@@ -335,7 +370,7 @@ h4 {
   width: 100%;
 }
 
-.container-header h4 {
+.container-header h2 {
   width: 80%;
   letter-spacing: 1px;
   margin-left: 15px;
@@ -360,8 +395,26 @@ h4 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  cursor: pointer;
   -webkit-box-shadow: 5px 5px 5px #b9b0b0;
           box-shadow: 5px 5px 5px #b9b0b0;
+  -webkit-animation: apparition 1.6s;
+          animation: apparition 1.6s;
+}
+
+.container-plat--1 {
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+
+.container-plat--2 {
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms;
+}
+
+.container-plat--3 {
+  -webkit-animation-delay: 800ms;
+          animation-delay: 800ms;
 }
 
 .container-plat .name-plat {
@@ -388,7 +441,38 @@ h4 {
   padding-right: 15px;
 }
 
+.container-plat:hover {
+  background-color: #99E2D0;
+}
+
+@-webkit-keyframes apparition {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes apparition {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 /************************* VUE DESKTOP *******************************************/
+/*********************** Page accueil ****************************/
 @media screen and (min-width: 750px) {
   body {
     margin: 15px;
@@ -434,6 +518,34 @@ h4 {
   }
   .container-library-item img {
     height: 230px;
+  }
+  /*********************************** Pages menu ****************************/
+  .header-page-resto {
+    background-color: #e4e1e1;
+    border-radius: 25px;
+  }
+  .header-image {
+    width: 600px;
+    margin: 10px auto;
+  }
+  .container-resto {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .container-global-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+  .container-global-menu .container-menu {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=style.css.map */

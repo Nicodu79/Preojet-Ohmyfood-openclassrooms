@@ -11,19 +11,25 @@ $gray-light: rgb(228, 225, 225);
 
 @mixin btn {
     color: white;
-    background-color: $pink;
+    background-image: linear-gradient(to bottom right, #FF79DA, #9356DC);
     padding: 10px 30px;
     border-radius: 20px;    
     border: none;
     margin-bottom: 40px;
     font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 1.3s, box-shadow 1.3s;
     @include border-shadow;
+    &:hover{
+        background-color: lighten($color: $pink, $amount: 6);
+        box-shadow: 12px 9px 5px #b9b0b0;
+    }
 }
 
 
 /***************** General *******************************/
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
 * {
@@ -37,7 +43,7 @@ body{
     font-family: 'roboto', 'arial', 'sans-serif';    
 }
 
-h4{
+h2{
     font-weight: bold;
     font-size: 1.4rem;
 }
@@ -82,7 +88,8 @@ h4{
     text-align: center;
 
     input{
-        @include btn
+        @include btn;
+        
     }
 }
 
@@ -91,8 +98,9 @@ h4{
     flex-direction: column;
     align-items: center;
     width: 100%;
-    h4{
-        margin: 25px 0 0 0;
+    h2{
+        margin: 25px 0 0 70px;
+        width: 100%;
     }
 }
 
@@ -105,6 +113,7 @@ h4{
     border-radius: 20px;
     padding: 10px 20px;
     margin: 10px 0;
+    cursor: pointer;
     @include border-shadow;
     i{
         padding: 0 16px;
@@ -139,7 +148,9 @@ h4{
     flex-direction: column;
     background-color: white;
     border-radius: 25px;
+    margin-bottom: 25px;
     position: relative;
+    cursor: pointer;
     @include border-shadow;
 }
 
@@ -152,7 +163,6 @@ h4{
 
 .new{
     position: absolute;
-    height: 25px;
     background-color: $green-light;
     border: 1px solid $green-light;
     top:20px;
@@ -178,6 +188,9 @@ h4{
         width: 50%;
         text-align: end;
         padding-right: 20px;
+        &:hover{
+            color: $pink;
+        }
     }        
 }
 
@@ -227,7 +240,7 @@ h4{
     margin: 0 0 0 20px;
     color: rgb(239, 237, 237);
     font-size: 0.8rem;
-    h4{
+    h2{
         margin: 0;
         letter-spacing: 1px;
     }
@@ -242,6 +255,10 @@ h4{
 /************************* PAGES MENU  ********************************/
 .arrow a{
     color: black;
+    position: absolute;
+    left: 25px;
+    top: 31px;
+    font-size: 1.2rem;
 }
 
 .top-page{
@@ -277,7 +294,7 @@ h4{
     display: flex;
     align-items: baseline;
     width: 100%;
-    h4{
+    h2{
         width: 80%;
         letter-spacing: 1px;
         margin-left: 15px;
@@ -296,7 +313,18 @@ h4{
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     @include border-shadow;
+    animation: apparition 1.6s;
+    &--1{      
+        animation-delay: 400ms;       
+    }
+    &--2{
+        animation-delay: 600ms;       
+    }
+    &--3{
+        animation-delay: 800ms;     
+    }
     .name-plat{
         font-weight: bold;
     }
@@ -315,7 +343,21 @@ h4{
         text-align: end;
         padding-right: 15px;
     }
-   
+    &:hover{
+        background-color: $green-light;
+    }
+    }
+    
+
+    @keyframes apparition{
+        0% {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
 
@@ -323,6 +365,8 @@ h4{
 
     /************************* VUE DESKTOP *******************************************/
     
+/*********************** Page accueil ****************************/
+
     @media screen and (min-width: 750px) {
 
 body{
@@ -364,5 +408,32 @@ header{
         }
     }  
 
+
+/*********************************** Pages menu ****************************/
+.header-page-resto{
+    background-color: $gray-light;
+    border-radius: 25px;
 }
+
+.header-image{
+    width: 600px;
+    margin: 10px auto;
+}
+
+.container-resto{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.container-global-menu{
+    display: flex;
+    width: 100%;
+    .container-menu{
+        width: 100%;
+    }
+}
+    
+
+}
+
 
