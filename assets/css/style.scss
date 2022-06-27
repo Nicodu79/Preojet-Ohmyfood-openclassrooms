@@ -4,6 +4,7 @@ $violet: #9356DC;
 $pink: #FF79DA;
 $green-light: #99E2D0;
 $gray-light: rgb(228, 225, 225);
+$violet-contrast: linear-gradient(to bottom right, #FF79DA, #9356DC);
 
 @mixin border-shadow {
     box-shadow: 5px 5px 5px rgb(185, 176, 176);    
@@ -11,17 +12,16 @@ $gray-light: rgb(228, 225, 225);
 
 @mixin btn {
     color: white;
-    background-image: linear-gradient(to bottom right, #FF79DA, #9356DC);
-    padding: 10px 30px;
+    background-image: $violet-contrast;
+    padding: 12px 30px;
     border-radius: 20px;    
     border: none;
     margin-bottom: 40px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 1.3s, box-shadow 1.3s;
+    transition: background-color 1.1s, box-shadow 1.1s;
     @include border-shadow;
     &:hover{
-        background-color: lighten($color: $pink, $amount: 6);
         box-shadow: 12px 9px 5px #b9b0b0;
     }
 }
@@ -29,7 +29,7 @@ $gray-light: rgb(228, 225, 225);
 
 /***************** General *******************************/
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
 * {
@@ -40,7 +40,9 @@ $gray-light: rgb(228, 225, 225);
 body{
     margin: 0px;
     font-size: 15px;
-    font-family: 'roboto', 'arial', 'sans-serif';    
+    font-family: 'roboto', 'arial', 'sans-serif'; 
+    display: flex;
+    flex-direction: column;   
 }
 
 h2{
@@ -77,19 +79,29 @@ h2{
     background-color: rgb(185, 192, 194);
     border: none;  
     padding-left: 10px;
+    font-weight: bold;
     }
     i{
         font-size: 1rem;
         padding-right: 3px;
+        margin-left: 40px;
     }
 }
 
 .header-search-content{
     text-align: center;
-
     input{
         @include btn;
-        
+        }
+    h2{
+        padding: 0 29px;
+        margin-bottom: 8px;
+        }
+    p{
+        text-align: center;
+        padding: 0px 20px 10px 20px;
+        margin-top: 5px;
+        font-size: 1.1rem;
     }
 }
 
@@ -99,7 +111,7 @@ h2{
     align-items: center;
     width: 100%;
     h2{
-        margin: 25px 0 0 70px;
+        margin: 35px 0 10px 50px;
         width: 100%;
     }
 }
@@ -112,12 +124,16 @@ h2{
     background-color: rgb(228, 225, 225);
     border-radius: 20px;
     padding: 10px 20px;
-    margin: 10px 0;
+    margin: 12px 0;
     cursor: pointer;
     @include border-shadow;
+    &:hover{
+        background-color: #e1d2f4;
+    }
     i{
         padding: 0 16px;
     }
+
     p:nth-child(1){
         background-color: $violet;
         border-radius: 50%;
@@ -127,7 +143,6 @@ h2{
         margin-left: -30px;
     }
     p{
-        font-weight: bold;
         font-size: 1.2em;
     }
 }
@@ -142,7 +157,12 @@ h2{
     padding: 0px 20px 60px 20px;
     margin-top: 30px;
     gap: 20px;
+    h2 {
+        padding: 20px 0 0 0 ;
+        margin-bottom: 0;
+    }
 }
+
 .library-item{
     display: flex;
     flex-direction: column;
@@ -167,12 +187,12 @@ h2{
     border: 1px solid $green-light;
     top:20px;
     right: 20px;
-    font-weight: bold;
-    padding: 9px;
+    padding: 6px 12px;
     color: darken($color: $green-light, $amount: 40);
 }
 
 .library-meta{
+    position: relative;
     display: flex;
     width: 100%;
     align-items: baseline;
@@ -187,11 +207,26 @@ h2{
     .heart-item{
         width: 50%;
         text-align: end;
+        font-size: 20px;
         padding-right: 20px;
-        &:hover{
-            color: $pink;
+        transition: color 500ms;
+        .fa-regular{
+            position: absolute;
+            top: 12px;
+            right: 20px;
         }
-    }        
+        .fa-solid{
+            position: absolute;
+            top: 12px;
+            right: 20px;
+            z-index: -1;
+        } 
+        &:hover{
+            z-index: 1;
+            color: $violet ;
+        }   
+}
+
 }
 
 /***************  FOOTER **************************************/
@@ -226,7 +261,10 @@ h2{
         i{
             font-size: 0.8rem;
             margin-right: 10px;
-        }  
+        } 
+        .fa-handshake-angle{
+            margin-right: 5px;
+        } 
     }
     .footer-lien2{
         padding: 0 0 10px 20px;
@@ -243,9 +281,90 @@ h2{
     h2{
         margin: 0;
         letter-spacing: 1px;
+        font-size: 1.4em;
     }
         
     }
+/********
+    .lds-spinner {
+        color: $violet;
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .lds-spinner div {
+        transform-origin: 40px 40px;
+        animation: lds-spinner 1.2s linear infinite;
+      }
+      .lds-spinner div:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 37px;
+        width: 6px;
+        height: 18px;
+        border-radius: 20%;
+        background: #fff;
+      }
+      .lds-spinner div:nth-child(1) {
+        transform: rotate(0deg);
+        animation-delay: -1.1s;
+      }
+      .lds-spinner div:nth-child(2) {
+        transform: rotate(30deg);
+        animation-delay: -1s;
+      }
+      .lds-spinner div:nth-child(3) {
+        transform: rotate(60deg);
+        animation-delay: -0.9s;
+      }
+      .lds-spinner div:nth-child(4) {
+        transform: rotate(90deg);
+        animation-delay: -0.8s;
+      }
+      .lds-spinner div:nth-child(5) {
+        transform: rotate(120deg);
+        animation-delay: -0.7s;
+      }
+      .lds-spinner div:nth-child(6) {
+        transform: rotate(150deg);
+        animation-delay: -0.6s;
+      }
+      .lds-spinner div:nth-child(7) {
+        transform: rotate(180deg);
+        animation-delay: -0.5s;
+      }
+      .lds-spinner div:nth-child(8) {
+        transform: rotate(210deg);
+        animation-delay: -0.4s;
+      }
+      .lds-spinner div:nth-child(9) {
+        transform: rotate(240deg);
+        animation-delay: -0.3s;
+      }
+      .lds-spinner div:nth-child(10) {
+        transform: rotate(270deg);
+        animation-delay: -0.2s;
+      }
+      .lds-spinner div:nth-child(11) {
+        transform: rotate(300deg);
+        animation-delay: -0.1s;
+      }
+      .lds-spinner div:nth-child(12) {
+        transform: rotate(330deg);
+        animation-delay: 0s;
+      }
+      @keyframes lds-spinner {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      *******************************************/
 
 
 
@@ -257,7 +376,7 @@ h2{
     color: black;
     position: absolute;
     left: 25px;
-    top: 31px;
+    top: 30px;
     font-size: 1.2rem;
 }
 
@@ -270,6 +389,8 @@ h2{
 .header-image img{
     width: 100%;
     height: 240px;
+    margin-bottom: -40px;
+
 }
 
 .container-resto{
@@ -297,7 +418,7 @@ h2{
     h2{
         width: 80%;
         letter-spacing: 1px;
-        margin-left: 15px;
+        margin: 30px 0 0 15px;
     }
     .heart-item{
         width: 20%;
@@ -306,10 +427,22 @@ h2{
         font-size: 1.2rem;
     }
 }
+
+.container-menu{
+    margin-top: 35px;
+}
+
+.container-title span{
+    text-decoration: underline $green-light;
+    text-underline-offset: 0.5em;
+    text-decoration-thickness: 3.5px;
+}
+
 .container-plat{
+    position: relative;
     background-color: white;
     padding: 10px;
-    margin: 15px 8px;
+    margin: 25px 8px 15px 8px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -343,8 +476,11 @@ h2{
         text-align: end;
         padding-right: 15px;
     }
-    &:hover{
+    .item-valid{
         background-color: $green-light;
+        position: absolute;
+        right: -10px;
+        height: 100%;
     }
     }
     
@@ -389,9 +525,24 @@ header{
     }
     .header-list{
         width: 50%;
-        border: 1px solid black;
+        border: 1px solid $gray-light;
+        background-color: $gray-light;
         border-radius: 25px;
     }
+    .header-search{
+        border-radius: 25px 25px 0 0;
+    }
+    .filtres{
+        background-color: #fff
+    }
+}
+
+.header-search-content h2, .header-search-content p{
+    margin-top: 35px;    
+}
+.header-search-content input{
+    margin-top: 40px;
+    font-size: 1.5rem;
 }
  
 .container-library-item{
@@ -410,6 +561,13 @@ header{
 
 
 /*********************************** Pages menu ****************************/
+
+.arrow a{
+    left: 275px;
+    top: 85px;
+    font-size: 1.5rem;
+}
+
 .header-page-resto{
     background-color: $gray-light;
     border-radius: 25px;
@@ -418,12 +576,16 @@ header{
 .header-image{
     width: 600px;
     margin: 10px auto;
+    img{
+        margin-bottom: 0;
+    }
 }
 
 .container-resto{
     display: flex;
     width: 100%;
     flex-direction: column;
+    margin-top: 20px;
 }
 .container-global-menu{
     display: flex;
