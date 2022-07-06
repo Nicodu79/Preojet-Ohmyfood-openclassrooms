@@ -31,7 +31,7 @@ h2 {
 }
 
 .header-top {
-  background-color: rgb(228, 225, 225);
+  background-color: #f6f6f6;
   font-size: 1.4rem;
 }
 
@@ -39,12 +39,12 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(185, 192, 194);
+  background-color: #e3e3e3;
   height: 45px;
   text-align: center;
 }
 .header-search input {
-  background-color: rgb(185, 192, 194);
+  background-color: #e3e3e3;
   border: none;
   padding-left: 10px;
   font-weight: bold;
@@ -101,7 +101,7 @@ h2 {
   align-items: baseline;
   width: 85%;
   text-align: center;
-  background-color: rgb(228, 225, 225);
+  background-color: #f6f6f6;
   border-radius: 20px;
   padding: 10px 20px;
   margin: 12px 0;
@@ -109,8 +109,12 @@ h2 {
   box-shadow: 5px 5px 5px rgb(185, 176, 176);
 }
 .filtres:hover {
-  transition: background-color 1.2s;
+  transition: background-color 0.6s;
   background-color: #e1d2f4;
+}
+.filtres:hover > i {
+  transition: color 0.6s;
+  color: #9356DC;
 }
 .filtres i {
   padding: 0 16px;
@@ -129,7 +133,7 @@ h2 {
 
 /***************** PARTIE PRINCIPALE **************************************/
 .container {
-  background-color: rgb(228, 225, 225);
+  background-color: #f6f6f6;
   display: flex;
   flex-direction: column;
   padding: 0px 20px 60px 20px;
@@ -217,7 +221,7 @@ h2 {
 
 /***************  FOOTER **************************************/
 .footer {
-  background-color: rgb(74, 71, 71);
+  background-color: #3b3a3a;
   padding-top: 20px;
 }
 
@@ -369,7 +373,7 @@ h2 {
 }
 
 .container-resto {
-  background-color: rgb(228, 225, 225);
+  background-color: #f6f6f6;
   border-radius: 25px 25px 0 0;
 }
 .container-resto input {
@@ -529,7 +533,8 @@ h2 {
           animation: rotate 0.6s ease-out forwards;
 }
 
-.container-plat:hover .meta-plat {
+.container-plat:hover .meta-plat,
+.container-plat:hover .name-plat {
   -webkit-animation: slide-left-meta 0.7s forwards;
           animation: slide-left-meta 0.7s forwards;
 }
@@ -627,8 +632,8 @@ h2 {
   }
   header .header-list {
     width: 50%;
-    border: 1px solid rgb(228, 225, 225);
-    background-color: rgb(228, 225, 225);
+    border: 1px solid #f6f6f6;
+    background-color: #f6f6f6;
     border-radius: 25px;
   }
   header .header-search {
@@ -638,7 +643,8 @@ h2 {
     background-color: #fff;
   }
 
-  .header-search-content h2, .header-search-content p {
+  .header-search-content h2,
+.header-search-content p {
     margin-top: 35px;
   }
 
@@ -671,7 +677,7 @@ h2 {
 
   .header-page-resto {
     position: relative;
-    background-color: rgb(228, 225, 225);
+    background-color: #f6f6f6;
     border-radius: 25px;
     margin: 20px auto;
   }
@@ -729,6 +735,6 @@ h2 {
   }
 
   .container-menu {
-    width: 100%;
+    width: 33% !important;
   }
 }/*# sourceMappingURL=style.css.map */
